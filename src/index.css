@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,7 +8,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;  
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'IBM Plex Mono', monospace, 'Bebas Neue', sans-serif;
 }
 
 body {
@@ -15,14 +17,66 @@ body {
   color-scheme: light dark;
 }
 
+.layout {
+  display: grid;
+  grid:
+    "header" auto
+    "main" 1fr
+    "footer" auto
+    / 1fr;
+  gap: 8px;
+}
+
+.header { 
+  grid-area: header;
+}
+
+.main { 
+  grid-area: main;
+}
+
+.content {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer {
+  grid-area: footer;
+}
+
 .logo {
   font-size: 25px;
   font-weight: 500;
+}
+
+.current {
+  color: #60F463;
 }
 
 .navbar a {
   font-size: 18px;
   font-weight: 500;
   text-decoration: none;
-  margin-left: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  position: relative;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  background-color: #60F463;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.navbar a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
