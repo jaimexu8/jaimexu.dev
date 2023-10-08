@@ -6,7 +6,7 @@ function AboutMe() {
   return (
     <>
       <div className="layout">
-        <NavBar />
+        <NavBar currentName="about-me" />
         <div className="main">
           <div className="content">
             <h1>This page is currently under development</h1>

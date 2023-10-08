@@ -2,21 +2,37 @@ import { Link } from "react-router-dom";
 import "../index.css";
 
 const navigation = [
-  { name: "home", href: "/", current: true },
+  { name: "home", href: "/", current: false },
   { name: "my-work", href: "/my-work", current: false },
   { name: "about-me", href: "/about-me", current: false },
   { name: "contact", href: "/contact", current: false },
 ];
 
-export default function Navbar() {
+type NavbarProps = {
+  currentName: string;
+};
+
+export default function Navbar({ currentName }: NavbarProps) {
+  navigation.forEach((item) => {
+    item.current = item.name === currentName;
+  });
+
   return (
     <header className="header static top-0 w-full block">
-      <div className="nav-container mx-auto w-1/2 py-5 px-24 flex justify-between items-center z-100">
-        <a href="/" className="logo no-underline font-light">
-          user@jaimexu:~$
-        </a>
+      <div className="nav-container mx-auto py-5 grid justify-between items-center z-100">
+        <div className="logo pl-5">
+          <a href="/" className="logo-name">
+            user@jaimexu
+          </a>
+          <a href="/" className="logo-directory">
+            :~$/{currentName}
+          </a>
+          <a href="/" className="logo-cursor">
+            &nbsp;
+          </a>
+        </div>
 
-        <nav className="navbar">
+        <nav className="navbar px-5">
           {navigation.map((navItem, index) => (
             <a
               key={index}

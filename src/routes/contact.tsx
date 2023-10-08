@@ -1,20 +1,18 @@
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
+import { ContactForm } from "../Components/ContactForm";
 import "../index.css";
+import { useState, useRef } from "react";
 
 function Contact() {
   return (
-    <>
-      <div className="layout">
-        <NavBar />
-        <div className="main">
-          <div className="content">
-            <h1>This page is currently under development</h1>
-          </div>
-        </div>
-        <Footer />
+    <div className="layout">
+      <NavBar currentName="contact" />
+      <div className="main">
+        <ContactForm />
       </div>
-    </>
+      <Footer />
+    </div>
   );
 }
 
