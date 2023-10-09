@@ -3,8 +3,8 @@ import "../index.css";
 
 const navigation = [
   { name: "home", href: "/", current: false },
-  { name: "my-work", href: "/my-work", current: false },
-  { name: "about-me", href: "/about-me", current: false },
+  //{ name: "my-work", href: "/my-work", current: false },
+  //{ name: "about-me", href: "/about-me", current: false },
   { name: "contact", href: "/contact", current: false },
 ];
 
@@ -31,16 +31,15 @@ export default function Navbar({ currentName }: NavbarProps) {
             &nbsp;
           </a>
         </div>
-
-        <nav className="navbar px-5">
+        <nav className="navbar px-5 flex justify-end">
           {navigation.map((navItem, index) => (
-            <a
+            <Link
               key={index}
-              href={navItem.href}
+              to={navItem.href}
               className={navItem.current ? "current" : ""}
             >
-              <Link to={navItem.href}>{navItem.name}</Link>
-            </a>
+              {navItem.name}
+            </Link>
           ))}
         </nav>
       </div>
