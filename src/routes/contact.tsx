@@ -2,7 +2,6 @@ import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 import { ContactForm } from "../Components/ContactForm";
 import "../index.css";
-import { useState, useRef } from "react";
 
 function Contact() {
   return (
