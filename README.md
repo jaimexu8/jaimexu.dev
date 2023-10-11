@@ -1,27 +1,21 @@
-# React + TypeScript + Vite
+# jaimexu.dev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal website built with TypeScript, React.js, Tailwind CSS, and EmailJS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Viewable resume
+* Contact form (Set up with EmailJS library)
 
-## Expanding the ESLint configuration
+## Planned Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+* Projects display
+* Backend to collect analytics (Using MongoDB, Express.js, and Node.js)
 
-- Configure the top-level `parserOptions` property like this:
+## Contact
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+For any questions or concerns, you may contact me at [xu1545@purdue.edu](mailto:xu1545@purdue.edu).
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
