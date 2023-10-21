@@ -4,7 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+body, html {
+  overflow-x: hidden;
+}
+*/
+
 body {
+  max-width: 100%;
   background-color: #191919;
   color: white;
   color-scheme: light dark;
@@ -92,11 +99,12 @@ body {
   height: 2px;
   width: 100%;
   background-color: #60F463;
-  animation: blinking 1s infinite; /* 1s is the duration of one cycle of animation, and infinite means the animation will continue indefinitely */
+  animation: blinking 1s infinite;
+  /* 1s is the duration of one cycle of animation, and infinite means the animation will continue indefinitely */
 }
 
 .nav-container {
-  max-width: 768px;
+  max-width: 1200px;
   grid-template-columns: 2fr 3fr;
 }
 
@@ -117,7 +125,7 @@ body {
 /* MAIN */
 
 .content {
-  max-width: 768px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
@@ -146,7 +154,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 768px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -158,7 +166,7 @@ body {
 
 /* CONTACT */
 .form-container {
-  max-width: 768px;
+  max-width: 1200px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -182,9 +190,11 @@ body {
   border-radius: 8px;
   padding: 10px;
   color: white;
+  background-color: hsl(0, 0%, 20%);;
 }
 
 .message-input {
+  color: white;
   height: 300px;
 }
 
