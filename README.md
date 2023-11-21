@@ -9,6 +9,16 @@ Personal website built with TypeScript, React.js, Tailwind CSS, and EmailJS. Vie
 
 ## Changelog
 
+### [1.0.2] - 11/20/2023
+
+#### Added
+
+- Added drop-down navbar menu for mobile screen sizes
+
+#### Changed
+
+- Updated home page content
+
 ### [1.0.1] - 10/21/2023
 
 #### Changed

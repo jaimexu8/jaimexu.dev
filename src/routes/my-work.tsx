@@ -1,12 +1,11 @@
-import NavBar from "../Components/NavBar";
-import Footer from "../Components/Footer";
-import "../index.css";
+import Header from "../Components/header/Header";
+import Footer from "../Components/footer/Footer";
 
 function MyWork() {
   return (
     <>
       <div className="layout">
-        <NavBar currentName="my-work" />
+        <Header currentPage="my-work" />
         <div className="main">
           <div className="content">
             <h1>This page is currently under development</h1>

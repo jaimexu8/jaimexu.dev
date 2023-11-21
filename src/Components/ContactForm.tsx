@@ -1,6 +1,5 @@
 import { FC, FormEvent, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
-import "../index.css";
 
 interface SendEmailResponse {
   text: string;
