@@ -1,12 +1,11 @@
-import NavBar from "../Components/NavBar";
-import Footer from "../Components/Footer";
+import Header from "../Components/header/Header";
+import Footer from "../Components/footer/Footer";
 import { ContactForm } from "../Components/ContactForm";
-import "../index.css";
 
 function Contact() {
   return (
     <div className="layout">
-      <NavBar currentName="contact" />
+      <Header currentPage="contact" />
       <div className="main">
         <ContactForm />
       </div>

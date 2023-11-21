@@ -1,18 +1,22 @@
-import "../index.css";
-import NavBar from "../Components/NavBar";
-import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
+import Header from "../Components/header/Header";
+import Footer from "../Components/footer/Footer";
 
 function Root() {
   return (
     <div className="layout">
-      <NavBar currentName="home" />
+      <Header currentPage="home" />
       <div className="main">
         <div className="content">
           <h1>Hello, I'm Jaime</h1>
           <h3>
-            I'm a sophomore in Computer Science at Purdue University, and I'm
-            passionate about building applications.
+            I'm a full stack developer and a sophomore at Purdue University.
+          </h3>
+          <br />
+          <h3>
+            I'm experienced in Java, C/C++, JS/TS, HTML/CSS, React.js, MongoDB,
+            Express.js, Node.js, Redux, Tailwind CSS, Bootstrap, MUI, x86
+            Assembly, and Swift.
           </h3>
           <br />
           <h3>
@@ -25,7 +29,7 @@ function Root() {
             >
               resume
             </a>{" "}
-            to read about my experience and skillset.
+            to read more about my experience and skillset.
           </h3>
           <br />
           <h3>
