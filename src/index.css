@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,7 +8,7 @@ body {
   background-color: #191919;
   color: white;
   color-scheme: light dark;
-  font-family: 'IBM Plex Mono', monospace, 'Bebas Neue', sans-serif;
+  font-family: "IBM Plex Mono", monospace, "Bebas Neue", sans-serif;
 }
 
 .layout {
@@ -22,11 +22,11 @@ body {
   gap: 8px;
 }
 
-.header { 
+.header {
   grid-area: header;
 }
 
-.main { 
+.main {
   grid-area: main;
   display: flex;
   flex-direction: column;
@@ -58,5 +58,5 @@ body {
 }
 
 .content-link {
-  color:#60F463;
+  color: #60f463;
 }
