@@ -1,5 +1,5 @@
-import Header from "../Components/header/Header";
-import Footer from "../Components/footer/Footer";
+import Header from "../Components/header/header";
+import Footer from "../Components/footer/footer";
 
 function MyWork() {
   return (

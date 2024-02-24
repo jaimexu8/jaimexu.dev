@@ -1,6 +1,6 @@
-import Header from "../Components/header/Header";
-import Footer from "../Components/footer/Footer";
-import { ContactForm } from "../Components/ContactForm";
+import Header from "../Components/header/header";
+import Footer from "../Components/footer/footer";
+import { ContactForm } from "../Components/contact-form";
 
 function Contact() {
   return (
