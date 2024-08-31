@@ -2,11 +2,6 @@
 
 Personal website built with TypeScript, React.js, Tailwind CSS, and EmailJS. Viewable at [jaimexu.dev](https://jaimexu.dev)
 
-## Features
-
-- Viewable resume
-- Contact form (Set up with EmailJS library)
-
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

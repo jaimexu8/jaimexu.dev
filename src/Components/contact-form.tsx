@@ -85,7 +85,11 @@ export const ContactForm: FC = () => {
         value={formData.message}
         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
       />
-      <button type="submit" value="Send" className="send-button">
+      <button
+        type="submit"
+        value="Send"
+        className="self-start mt-10 px-4 py-2 rounded border-2 border-[#60f463] text-[#60f463] hover:bg-[#60f463]  hover:text-white transition"
+      >
         Send
       </button>
       {emailSent && (
