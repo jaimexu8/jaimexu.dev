@@ -5,9 +5,9 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { TracingBeam } from "./Components/tracing-beam";
-import { ContactForm } from "./Components/contact-form";
-import { SectionGap } from "./Components/section-gap";
+import { TracingBeam } from "./components/tracing-beam";
+import { ContactForm } from "./components/contact-form";
+import { SectionGap } from "./components/section-gap";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 
 export default function App() {
