@@ -162,12 +162,12 @@ export default function App() {
               </section>
               <SectionGap line={true} />
               <section ref={section2Ref} className="flex flex-col w-full">
-                <div className="flex flex-row w-full">
-                  <div className="w-1/4 mr-5">
+                <div className="flex flex-col sm:flex-row w-full">
+                  <div className="w-full sm:w-1/4 mr-5">
                     <p className="text-2xl underline">Education</p>
                   </div>
-                  <div className="w-3/4">
-                    <p className="text-xl">Purdue University</p>
+                  <div className="w-full sm:w-3/4">
+                    <p className="text-xl font-extrabold">Purdue University</p>
                     <p className="text-lg italic">
                       Bachelor of Science in Computer Science
                     </p>
@@ -177,11 +177,11 @@ export default function App() {
                   </div>
                 </div>
                 <SectionGap height={100} />
-                <div className="flex flex-row w-full">
-                  <div className="w-1/4 mr-5">
+                <div className="flex flex-col sm:flex-row w-full">
+                  <div className="w-full sm:w-1/4 mr-5">
                     <p className="text-2xl underline">Experience</p>
                   </div>
-                  <div className="w-3/4">
+                  <div className="w-full sm:w-3/4">
                     <p className="text-xl font-extrabold">Fundwurx</p>
                     <p className="text-lg italic">
                       Full-Stack Engineering Intern
@@ -194,16 +194,16 @@ export default function App() {
                       <li>
                         Implemented responsive UI components using React to
                         enhance user experience and REST API requests to
-                        synchronize frontend and backend logic
+                        synchronize frontend and backend logic.
                       </li>
                       <li>
                         Developed a user interests feature to track preferences,
                         enhancing personalized recommendations and providing
-                        valuable insights for user admins
+                        valuable insights for user admins.
                       </li>
                       <li>
                         Authored backend unit tests with Jest, reducing
-                        production bugs and enhancing CI/CD reliability
+                        production bugs and enhancing CI/CD reliability.
                       </li>
                     </ul>
                     <SectionGap height={70} />
@@ -215,18 +215,19 @@ export default function App() {
                     <br />
                     <ul className="list-disc list-inside">
                       <li>
-                        Collaboratively designed and implemented a responsive
-                        multi-page form using React, enhancing user experience
-                        for a local nonprofit
+                        Designed and developed a responsive, multi-page form in
+                        React, improving user experience and accessibility for a
+                        local nonprofit, resulting in more efficient data
+                        collection.
                       </li>
                       <li>
-                        Developed a robust administrative dashboard with Node.js
-                        and Express, streamlining data management and reporting
+                        Built a dynamic administrative dashboard using Node.js
+                        and Express, automating data management and reporting
+                        processes to streamline operations.
                       </li>
                       <li>
-                        Participated in code reviews and team meetings,
-                        contributing to best practices and ensuring high-quality
-                        code delivery
+                        Actively participated in Agile methodologies, including
+                        Scrum meetings and code reviews.
                       </li>
                     </ul>
                   </div>
