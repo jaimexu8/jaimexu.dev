@@ -58,7 +58,7 @@ export default function App() {
               </a>
             </div>
             {isMobile ? (
-              <div className="flex justify-end cursor-pointer mx-20">
+              <div className="flex justify-end cursor-pointer mx-5">
                 {dropdownOpen ? (
                   <FontAwesomeIcon
                     icon={faBarsStaggered}
@@ -133,25 +133,16 @@ export default function App() {
           )}
         </header>
         <div className="main">
-          <div className="content">
+          <div className="content px-4">
             <TracingBeam>
               <section ref={section1Ref}>
-                <p className="text-4xl font-black my-10">Hello, I'm Jaime</p>
+                <p className="text-4xl font-black my-10">Hi, I'm Jaime</p>
                 <p className="text-lg">
-                  I'm a junior in Computer Science at Purdue University
-                  leveraging my academic foundation and experience to develop
-                  scalable web solutions. Through my full-stack engineering
-                  internship at Fundwurx and past projects, I've gained
-                  expertise in implementing interactive user interfaces and
-                  working with databases.
-                </p>
-                <br />
-                <p className="text-lg">
-                  My commitment to quality and user-centric design drives my
-                  contributions to projects, aligning to deliver impactful
-                  technological solutions. As a Full-Stack Engineering Intern at
-                  Fundwurx, I enhanced user experience by implementing
-                  personalized features using React and Node.js.
+                  I'm a junior in Computer Science at Purdue University,
+                  experienced in full-stack development. Through my software
+                  engineering internship at Fundwurx as well as past projects,
+                  I've gained extensive experience in developing web and mobile
+                  applications, primarily using React, Node, and JavaScript.
                 </p>
                 <button
                   onClick={() => window.open("/Jaime_Xu_Resume.pdf", "_blank")}
@@ -184,7 +175,7 @@ export default function App() {
                   <div className="w-full sm:w-3/4">
                     <p className="text-xl font-extrabold">Fundwurx</p>
                     <p className="text-lg italic">
-                      Full-Stack Engineering Intern
+                      Software Engineering Intern
                     </p>
                     <p className="text-lg">
                       Philadelphia, PA • February 2024 - August 2024
@@ -192,42 +183,45 @@ export default function App() {
                     <br />
                     <ul className="list-disc list-inside">
                       <li>
-                        Implemented responsive UI components using React to
-                        enhance user experience and REST API requests to
-                        synchronize frontend and backend logic.
+                        Developed API with TypeScript and PostgreSQL, enabling
+                        company admins to manage volunteer events. Resulted in
+                        over 40 events and 700+ volunteer hours. Included
+                        automated unit tests using Jest.
                       </li>
                       <li>
-                        Developed a user interests feature to track preferences,
-                        enhancing personalized recommendations and providing
-                        valuable insights for user admins.
-                      </li>
-                      <li>
-                        Authored backend unit tests with Jest, reducing
-                        production bugs and enhancing CI/CD reliability.
+                        Engineered a user interests tracking feature with React,
+                        allowing the collection of employee preferences. Helped
+                        company admins tailor charity event selections. Resulted
+                        in increased employee participation and customized event
+                        experiences.
                       </li>
                     </ul>
                     <SectionGap height={70} />
                     <p className="text-xl font-extrabold">Hack the Future</p>
-                    <p className="text-lg italic">Full-Stack Developer</p>
+                    <p className="text-lg italic">Software Developer</p>
                     <p className="text-lg">
                       West Lafayette, IN • September 2023 - May 2024
                     </p>
                     <br />
                     <ul className="list-disc list-inside">
                       <li>
-                        Designed and developed a responsive, multi-page form in
-                        React, improving user experience and accessibility for a
-                        local nonprofit, resulting in more efficient data
-                        collection.
+                        Implemented a form in React, tracking program signups
+                        and user data for client serving over 2,100 individuals.
                       </li>
                       <li>
-                        Built a dynamic administrative dashboard using Node.js
-                        and Express, automating data management and reporting
-                        processes to streamline operations.
+                        Built an administrative dashboard using Node.js and
+                        Express that automated data management, reducing manual
+                        reporting efforts by 50 hours per month.
                       </li>
                       <li>
-                        Actively participated in Agile methodologies, including
-                        Scrum meetings and code reviews.
+                        Integrated authentication systems with cookies and
+                        sessions to manage secure user data, ensuring privacy
+                        and data protection.
+                      </li>
+                      <li>
+                        Participated in Agile methodologies, including Scrum
+                        meetings and code reviews, in a team of 10, enhancing
+                        team collaboration and code quality.
                       </li>
                     </ul>
                   </div>
