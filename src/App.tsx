@@ -3,7 +3,6 @@ import {
   faBars,
   faBarsStaggered,
   faEnvelope,
-  faExternalLinkAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { TracingBeam } from "./components/tracing-beam";
@@ -42,9 +41,142 @@ export default function App() {
     return () => window.removeEventListener("resize", checkSize);
   }, []);
 
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="flex items-center justify-center">
       <div className="layout">
+        {/* Background gradient circles */}
+        <div
+          className="bg-circle-1"
+          style={{
+            transform: `translateY(${scrollY * 0.3}px) translateX(${
+              scrollY * 0.15
+            }px)`,
+          }}
+        />
+        <div
+          className="bg-circle-2"
+          style={{
+            transform: `translateY(${-scrollY * 0.4}px) translateX(${
+              scrollY * 0.25
+            }px)`,
+          }}
+        />
+        <div
+          className="bg-circle-3"
+          style={{
+            transform: `translateY(${scrollY * 0.35}px) translateX(${
+              -scrollY * 0.2
+            }px)`,
+          }}
+        />
+        <div
+          className="bg-circle-4"
+          style={{
+            transform: `translateY(${-scrollY * 0.25}px) translateX(${
+              scrollY * 0.3
+            }px)`,
+          }}
+        />
+        <div
+          className="bg-circle-5"
+          style={{
+            transform: `translateY(${scrollY * 0.45}px) translateX(${
+              -scrollY * 0.3
+            }px)`,
+          }}
+        />
+        <div
+          className="bg-circle-6"
+          style={{
+            transform: `translateY(${-scrollY * 0.35}px) translateX(${
+              scrollY * 0.2
+            }px)`,
+          }}
+        />
+        <div
+          className="bg-circle-7"
+          style={{
+            transform: `translateY(${scrollY * 0.5}px) translateX(${
+              -scrollY * 0.4
+            }px)`,
+          }}
+        />
+        <div
+          className="bg-circle-8"
+          style={{
+            transform: `translateY(${-scrollY * 0.6}px) translateX(${
+              scrollY * 0.35
+            }px)`,
+          }}
+        />
+        <div
+          className="bg-circle-9"
+          style={{
+            transform: `translateY(${scrollY * 0.25}px) translateX(${
+              -scrollY * 0.5
+            }px)`,
+          }}
+        />
+        <div
+          className="bg-circle-10"
+          style={{
+            transform: `translateY(${-scrollY * 0.45}px) translateX(${
+              scrollY * 0.6
+            }px)`,
+          }}
+        />
+        <div
+          className="bg-circle-11"
+          style={{
+            transform: `translateY(${scrollY * 0.7}px) translateX(${
+              -scrollY * 0.25
+            }px)`,
+          }}
+        />
+        <div
+          className="bg-circle-12"
+          style={{
+            transform: `translateY(${-scrollY * 0.55}px) translateX(${
+              scrollY * 0.4
+            }px)`,
+          }}
+        />
+        <div
+          className="bg-circle-13"
+          style={{
+            transform: `translateY(${scrollY * 0.8}px) translateX(${
+              -scrollY * 0.3
+            }px)`,
+          }}
+        />
+        <div
+          className="bg-circle-14"
+          style={{
+            transform: `translateY(${-scrollY * 0.9}px) translateX(${
+              scrollY * 0.5
+            }px)`,
+          }}
+        />
+        <div
+          className="bg-circle-15"
+          style={{
+            transform: `translateY(${scrollY * 0.4}px) translateX(${
+              -scrollY * 0.7
+            }px)`,
+          }}
+        />
+
         <header className="header">
           <div className="nav-container">
             {isMobile ? (
@@ -151,7 +283,7 @@ export default function App() {
               <section ref={section1Ref} className="fade-in-up">
                 <h1>Hi, I'm Jaime</h1>
                 <p className="text-xl mb-6">
-                  I'm a senior in Computer Science at Purdue University and a
+                  I'm a senior in computer science at Purdue University and a
                   software engineer experienced in developing web and mobile
                   applications, primarily using React and Node.js.
                 </p>
@@ -237,11 +369,13 @@ export default function App() {
 
                 <div className="projects-grid">
                   <div className="project-card">
-                    {/* <div className="project-image">
-                      <div className="w-full h-full flex items-center justify-center text-4xl text-gray-400">
-                        
-                      </div>
-                    </div> */}
+                    <div className="project-image">
+                      <img
+                        src="/src/assets/Shiba Type.png"
+                        alt="Shiba Type Project"
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
                     <h3 className="project-title">Shiba Type</h3>
                     <p className="project-description">
                       Customizable typing test website featuring a leaderboard,
@@ -265,11 +399,13 @@ export default function App() {
                   </div>
 
                   <div className="project-card">
-                    {/* <div className="project-image">
-                      <div className="w-full h-full flex items-center justify-center text-4xl text-gray-400">
-                        
-                      </div>
-                    </div> */}
+                    <div className="project-image">
+                      <img
+                        src="/src/assets/Homemade Helper.png"
+                        alt="Homemade Helper Project"
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
                     <h3 className="project-title">Homemade Helper</h3>
                     <p className="project-description">
                       A web app that allows user to find recipes and chat with
@@ -296,13 +432,17 @@ export default function App() {
               </section>
 
               <section ref={section4Ref} className="fade-in-up">
-                <h2>Get In Touch</h2>
-                <p className="mb-8">
-                  I'm always interested in new opportunities and collaborations.
-                  Whether you have a question or just want to say hi, feel free
-                  to reach out!
-                </p>
-                <ContactForm />
+                <h2>Contact</h2>
+                <div className="contact-section">
+                  <ContactForm />
+                  <div className="contact-text">
+                    <h3>Get In Touch</h3>
+                    <p>
+                      Feel free to reach out. I'm always open to new
+                      opportunities.
+                    </p>
+                  </div>
+                </div>
               </section>
             </TracingBeam>
           </div>
@@ -310,7 +450,7 @@ export default function App() {
         <div className="footer">
           <div className="footer-content">
             <div className="copyright">
-              <p>© 2024 Jaime Xu. All rights reserved.</p>
+              <p>© 2025 Jaime Xu. All rights reserved.</p>
             </div>
             <div className="footer-links">
               <a
