@@ -3,17 +3,18 @@ import {
   faBars,
   faBarsStaggered,
   faEnvelope,
+  faExternalLinkAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { TracingBeam } from "./components/tracing-beam";
 import { ContactForm } from "./components/contact-form";
-import { SectionGap } from "./components/section-gap";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 
 export default function App() {
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
+  const section4Ref = useRef(null);
 
   const scrollToSection = (
     sectionRef: MutableRefObject<HTMLElement | null>
@@ -23,7 +24,7 @@ export default function App() {
     }
   };
 
-  const MAX_MENU_WIDTH = 600;
+  const MAX_MENU_WIDTH = 768;
   const [isMobile, setIsMobile] = useState(window.innerWidth < MAX_MENU_WIDTH);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -44,32 +45,26 @@ export default function App() {
   return (
     <div className="flex items-center justify-center">
       <div className="layout">
-        <header className="header static top-0 w-full block">
-          <div className="nav-container mx-auto py-5 grid justify-between items-center z-100">
-            <div className="logo pl-5">
-              <a href="/" className="logo-name">
-                user@jaimexu
-              </a>
-              <a href="/" className="logo-directory">
-                :~$/home
-              </a>
-              <a href="/" className="logo-cursor">
-                &nbsp;
-              </a>
-            </div>
+        <header className="header">
+          <div className="nav-container">
             {isMobile ? (
-              <div className="flex justify-end cursor-pointer mx-5">
+              <div className="flex justify-end cursor-pointer">
                 {dropdownOpen ? (
                   <FontAwesomeIcon
                     icon={faBarsStaggered}
                     onClick={toggleDropdown}
+                    className="text-xl"
                   />
                 ) : (
-                  <FontAwesomeIcon icon={faBars} onClick={toggleDropdown} />
+                  <FontAwesomeIcon
+                    icon={faBars}
+                    onClick={toggleDropdown}
+                    className="text-xl"
+                  />
                 )}
               </div>
             ) : (
-              <nav className="navbar px-5 flex justify-end">
+              <nav className="navbar">
                 <a
                   href="#section1"
                   onClick={(e) => {
@@ -95,13 +90,22 @@ export default function App() {
                     scrollToSection(section3Ref);
                   }}
                 >
+                  Projects
+                </a>
+                <a
+                  href="#section4"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(section4Ref);
+                  }}
+                >
                   Contact
                 </a>
               </nav>
             )}
           </div>
           {isMobile && dropdownOpen && (
-            <nav className="nav-dropdown flex flex-col items-center">
+            <nav className="nav-dropdown">
               <a
                 href="#section1"
                 onClick={(e) => {
@@ -127,66 +131,90 @@ export default function App() {
                   scrollToSection(section3Ref);
                 }}
               >
+                Projects
+              </a>
+              <a
+                href="#section4"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(section4Ref);
+                }}
+              >
                 Contact
               </a>
             </nav>
           )}
         </header>
         <div className="main">
-          <div className="content px-4">
+          <div className="content">
             <TracingBeam>
-              <section ref={section1Ref}>
-                <p className="text-4xl font-black my-10">Hi, I'm Jaime</p>
-                <p className="text-lg">
-                  I'm a junior in Computer Science at Purdue University,
-                  experienced in full-stack development. Through my software
-                  engineering internship at Fundwurx as well as past projects,
-                  I've gained extensive experience in developing web and mobile
-                  applications, primarily using React, Node, and JavaScript.
+              <section ref={section1Ref} className="fade-in-up">
+                <h1>Hi, I'm Jaime</h1>
+                <p className="text-xl mb-6">
+                  I'm a senior in Computer Science at Purdue University and a
+                  software engineer experienced in developing web and mobile
+                  applications, primarily using React and Node.js.
                 </p>
                 <button
                   onClick={() => window.open("/Jaime_Xu_Resume.pdf", "_blank")}
-                  className="mt-10 px-4 py-2 rounded border-2 border-[#60f463] text-[#60f463] hover:bg-[#60f463]  hover:text-white transition"
+                  className="btn btn-primary"
                 >
-                  Resume
-                </button>{" "}
+                  View Resume
+                </button>
               </section>
-              <SectionGap line={true} />
-              <section ref={section2Ref} className="flex flex-col w-full">
-                <div className="flex flex-col sm:flex-row w-full">
-                  <div className="w-full sm:w-1/4 mr-5">
-                    <p className="text-2xl underline">Education</p>
-                  </div>
-                  <div className="w-full sm:w-3/4">
-                    <p className="text-xl font-extrabold">Purdue University</p>
-                    <p className="text-lg italic">
-                      Bachelor of Science in Computer Science
-                    </p>
-                    <p className="text-lg">
-                      West Lafayette, IN • August 2022 - May 2026
-                    </p>
+
+              <section ref={section2Ref} className="fade-in-up">
+                <h2>Experience & Education</h2>
+
+                <div className="experience-item">
+                  <h3 className="experience-title">
+                    Bachelor of Science in Computer Science
+                  </h3>
+                  <p className="experience-company">Purdue University</p>
+                  <p className="experience-date">
+                    West Lafayette, IN • August 2022 - May 2026
+                  </p>
+                </div>
+
+                <div className="experience-item">
+                  <h3 className="experience-title">Software Engineer Intern</h3>
+                  <p className="experience-company">Tenon</p>
+                  <p className="experience-date">
+                    Indianapolis, IN • May 2025 - Present
+                  </p>
+                  <div className="experience-description">
+                    <ul>
+                      <li>
+                        Building custom UI components using Seismic JavaScript
+                        framework. Styling and configuring pages with ServiceNow
+                        UI Builder.
+                      </li>
+                      <li>
+                        Integrating multilingual support across 30+ reusable
+                        components to enhance global accessibility.
+                      </li>
+                      <li>
+                        Architecting customizable form SDK with business rules
+                        and access control lists (ACLs) to secure platform data
+                        and enforce user permissions.
+                      </li>
+                    </ul>
                   </div>
                 </div>
-                <SectionGap height={100} />
-                <div className="flex flex-col sm:flex-row w-full">
-                  <div className="w-full sm:w-1/4 mr-5">
-                    <p className="text-2xl underline">Experience</p>
-                  </div>
-                  <div className="w-full sm:w-3/4">
-                    <p className="text-xl font-extrabold">Fundwurx</p>
-                    <p className="text-lg italic">
-                      Software Engineering Intern
-                    </p>
-                    <p className="text-lg">
-                      Philadelphia, PA • February 2024 - August 2024
-                    </p>
-                    <br />
-                    <ul className="list-disc list-inside">
+
+                <div className="experience-item">
+                  <h3 className="experience-title">Software Engineer Intern</h3>
+                  <p className="experience-company">Fundwurx</p>
+                  <p className="experience-date">
+                    Philadelphia, PA • February 2024 - August 2024
+                  </p>
+                  <div className="experience-description">
+                    <ul>
                       <li>
-                        Developed API with TypeScript and PostgreSQL, enabling
-                        company admins to manage volunteer events. Resulted in
-                        over 40 events and 700+ volunteer hours. Included
-                        automated unit tests using Jest.
+                        Designed and deployed a TypeScript/PostgreSQL API for
+                        posting and managing volunteer events. Resulted in over
+                        40 events and 700+ volunteer hours. Included automated
+                        unit tests using Jest.
                       </li>
                       <li>
                         Engineered a user interests tracking feature with React,
@@ -196,77 +224,113 @@ export default function App() {
                         experiences.
                       </li>
                     </ul>
-                    <SectionGap height={70} />
-                    <p className="text-xl font-extrabold">Hack the Future</p>
-                    <p className="text-lg italic">Software Developer</p>
-                    <p className="text-lg">
-                      West Lafayette, IN • September 2023 - May 2024
-                    </p>
-                    <br />
-                    <ul className="list-disc list-inside">
-                      <li>
-                        Implemented a form in React, tracking program signups
-                        and user data for client serving over 2,100 individuals.
-                      </li>
-                      <li>
-                        Built an administrative dashboard using Node.js and
-                        Express that automated data management, reducing manual
-                        reporting efforts by 50 hours per month.
-                      </li>
-                      <li>
-                        Integrated authentication systems with cookies and
-                        sessions to manage secure user data, ensuring privacy
-                        and data protection.
-                      </li>
-                      <li>
-                        Participated in Agile methodologies, including Scrum
-                        meetings and code reviews, in a team of 10, enhancing
-                        team collaboration and code quality.
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </section>
-              <SectionGap line={true} />
-              <section ref={section3Ref}>
-                <p className="text-3xl font-black">Contact me</p>
+
+              <section ref={section3Ref} className="fade-in-up">
+                <h2>Projects</h2>
+                <p className="mb-8">
+                  Here are some projects that demonstrate my skills in
+                  full-stack development.
+                </p>
+
+                <div className="projects-grid">
+                  <div className="project-card">
+                    {/* <div className="project-image">
+                      <div className="w-full h-full flex items-center justify-center text-4xl text-gray-400">
+                        
+                      </div>
+                    </div> */}
+                    <h3 className="project-title">Shiba Type</h3>
+                    <p className="project-description">
+                      Customizable typing test website featuring a leaderboard,
+                      shop, user-authentication, and selectable themes.
+                    </p>
+                    <div className="project-links">
+                      <a
+                        href="https://github.com/jaimexu8/shibatype"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-secondary"
+                      >
+                        <FontAwesomeIcon icon={faGithub} />
+                        View Code
+                      </a>
+                      {/* <a href="#" className="btn btn-primary">
+                        <FontAwesomeIcon icon={faExternalLinkAlt} />
+                        Live Demo
+                      </a> */}
+                    </div>
+                  </div>
+
+                  <div className="project-card">
+                    {/* <div className="project-image">
+                      <div className="w-full h-full flex items-center justify-center text-4xl text-gray-400">
+                        
+                      </div>
+                    </div> */}
+                    <h3 className="project-title">Homemade Helper</h3>
+                    <p className="project-description">
+                      A web app that allows user to find recipes and chat with
+                      an AI cooking assistant. Built as the lone developer on my
+                      team for the Xtern 2025 Hackathon.
+                    </p>
+                    <div className="project-links">
+                      <a
+                        href="https://github.com/jaimexu8/shibatype"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-secondary"
+                      >
+                        <FontAwesomeIcon icon={faGithub} />
+                        View Code
+                      </a>
+                      {/* <a href="#" className="btn btn-primary">
+                        <FontAwesomeIcon icon={faExternalLinkAlt} />
+                        Live Demo
+                      </a> */}
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section ref={section4Ref} className="fade-in-up">
+                <h2>Get In Touch</h2>
+                <p className="mb-8">
+                  I'm always interested in new opportunities and collaborations.
+                  Whether you have a question or just want to say hi, feel free
+                  to reach out!
+                </p>
                 <ContactForm />
               </section>
             </TracingBeam>
           </div>
         </div>
         <div className="footer">
-          <div className="footer-content px-5 py-2">
+          <div className="footer-content">
             <div className="copyright">
-              <p>Copyright © 2023 Jaime Xu. All rights reserved.</p>
+              <p>© 2024 Jaime Xu. All rights reserved.</p>
             </div>
-            <div className="footer-links min-w-fit">
+            <div className="footer-links">
               <a
                 href="https://github.com/jaimexu8"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="GitHub"
               >
-                <FontAwesomeIcon icon={faGithub} style={{ color: "#60f463" }} />
+                <FontAwesomeIcon icon={faGithub} />
               </a>
               <a
                 href="https://linkedin.com/in/jaimexu8"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="LinkedIn"
               >
-                <FontAwesomeIcon
-                  icon={faLinkedin}
-                  style={{ color: "#60f463" }}
-                />
+                <FontAwesomeIcon icon={faLinkedin} />
               </a>
-              <a
-                href="mailto:jaimexu8@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faEnvelope}
-                  style={{ color: "#60f463" }}
-                />
+              <a href="mailto:jaimexu8@gmail.com" title="Email">
+                <FontAwesomeIcon icon={faEnvelope} />
               </a>
             </div>
           </div>

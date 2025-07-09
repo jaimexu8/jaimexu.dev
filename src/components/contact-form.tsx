@@ -88,7 +88,7 @@ export const ContactForm: FC = () => {
       <button
         type="submit"
         value="Send"
-        className="self-start mt-10 px-4 py-2 rounded border-2 border-[#60f463] text-[#60f463] hover:bg-[#60f463]  hover:text-white transition"
+        className="self-start mt-10 px-4 py-2 rounded border-2 border-white text-white hover:bg-white hover:text-black transition"
       >
         Send
       </button>
