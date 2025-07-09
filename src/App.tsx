@@ -8,6 +8,8 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { TracingBeam } from "./components/tracing-beam";
 import { ContactForm } from "./components/contact-form";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
+import shibaTypeImage from "./assets/Shiba Type.png";
+import homemadeHelperImage from "./assets/Homemade Helper.png";
 
 export default function App() {
   const section1Ref = useRef(null);
@@ -371,7 +373,7 @@ export default function App() {
                   <div className="project-card">
                     <div className="project-image">
                       <img
-                        src="/src/assets/Shiba Type.png"
+                        src={shibaTypeImage}
                         alt="Shiba Type Project"
                         className="w-full h-full object-cover rounded-lg"
                       />
@@ -401,7 +403,7 @@ export default function App() {
                   <div className="project-card">
                     <div className="project-image">
                       <img
-                        src="/src/assets/Homemade Helper.png"
+                        src={homemadeHelperImage}
                         alt="Homemade Helper Project"
                         className="w-full h-full object-cover rounded-lg"
                       />
