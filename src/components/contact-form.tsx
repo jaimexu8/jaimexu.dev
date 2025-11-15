@@ -17,83 +17,165 @@ export const ContactForm: FC = () => {
   });
 
   const [emailSent, setEmailSent] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const sendEmail = (e: FormEvent) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        "service_57mu53o",
-        "template_3w2db0e",
-        e.currentTarget as HTMLFormElement,
-        "Ukt09dJG573K5wksF"
-      )
-      .then(
-        (result: SendEmailResponse) => {
-          console.log(result.text);
-          setEmailSent(true); // Set emailSent to true once email is sent
-        },
-        (error: SendEmailError) => {
-          console.log(error.text);
-        }
-      );
-  };
+  // Validate environment variables
+  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
   useEffect(() => {
-    if (emailSent) {
+    if (!serviceId || !templateId || !publicKey) {
+      setError(
+        "Email service configuration is missing. Please check your environment variables."
+      );
+    }
+  }, [serviceId, templateId, publicKey]);
+
+  const validateForm = (): boolean => {
+    if (!formData.user_name.trim()) {
+      setError("Please enter your name.");
+      return false;
+    }
+    if (!formData.user_email.trim()) {
+      setError("Please enter your email address.");
+      return false;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.user_email)) {
+      setError("Please enter a valid email address.");
+      return false;
+    }
+    if (!formData.message.trim()) {
+      setError("Please enter a message.");
+      return false;
+    }
+    return true;
+  };
+
+  const sendEmail = async (e: FormEvent) => {
+    e.preventDefault();
+    setError(null);
+
+    if (!validateForm()) {
+      return;
+    }
+
+    if (!serviceId || !templateId || !publicKey) {
+      setError(
+        "Email service is not configured. Please contact the site administrator."
+      );
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      await emailjs.sendForm(serviceId, templateId, e.currentTarget as HTMLFormElement, publicKey);
+      setEmailSent(true);
       setFormData({
         user_name: "",
         user_email: "",
         message: "",
       });
+    } catch (err) {
+      const error = err as SendEmailError;
+      console.error("EmailJS error:", error);
+      setError(
+        "Failed to send email. Please try again later or contact me directly at jaimexu8@gmail.com."
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (emailSent) {
       const timer = setTimeout(() => {
-        setEmailSent(false); // Reset emailSent back to false after 5 seconds
+        setEmailSent(false);
       }, 5000);
-      return () => clearTimeout(timer); // Clear timeout if the component is unmounted
+      return () => clearTimeout(timer);
     }
   }, [emailSent]);
 
   return (
-    <form className="form-container" onSubmit={sendEmail}>
-      <label className="form-label">Name</label>
+    <form className="form-container" onSubmit={sendEmail} noValidate>
+      <label htmlFor="user_name" className="form-label">
+        Name
+      </label>
       <input
+        id="user_name"
         type="text"
         name="user_name"
         placeholder="Enter your name..."
         className="form-input"
         value={formData.user_name}
-        onChange={(e) =>
-          setFormData({ ...formData, user_name: e.target.value })
-        }
+        onChange={(e) => {
+          setFormData({ ...formData, user_name: e.target.value });
+          setError(null);
+        }}
+        required
+        aria-required="true"
+        aria-invalid={error && !formData.user_name.trim() ? "true" : "false"}
+        aria-describedby={error && !formData.user_name.trim() ? "name-error" : undefined}
       />
-      <label className="form-label">Email</label>
+
+      <label htmlFor="user_email" className="form-label">
+        Email
+      </label>
       <input
+        id="user_email"
         type="email"
         name="user_email"
         placeholder="Enter your email..."
         className="form-input"
         value={formData.user_email}
-        onChange={(e) =>
-          setFormData({ ...formData, user_email: e.target.value })
-        }
+        onChange={(e) => {
+          setFormData({ ...formData, user_email: e.target.value });
+          setError(null);
+        }}
+        required
+        aria-required="true"
+        aria-invalid={error && !formData.user_email.trim() ? "true" : "false"}
+        aria-describedby={error && !formData.user_email.trim() ? "email-error" : undefined}
       />
-      <label className="form-label">Message</label>
+
+      <label htmlFor="message" className="form-label">
+        Message
+      </label>
       <textarea
+        id="message"
         name="message"
         placeholder="Enter your message..."
         className="form-input message-input"
         value={formData.message}
-        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+        onChange={(e) => {
+          setFormData({ ...formData, message: e.target.value });
+          setError(null);
+        }}
+        required
+        aria-required="true"
+        aria-invalid={error && !formData.message.trim() ? "true" : "false"}
+        aria-describedby={error && !formData.message.trim() ? "message-error" : undefined}
       />
+
+      {error && (
+        <div className="error-alert" role="alert" aria-live="polite">
+          {error}
+        </div>
+      )}
+
       <button
         type="submit"
-        value="Send"
-        className="self-start mt-10 px-4 py-2 rounded border-2 border-white text-white hover:bg-white hover:text-black transition"
+        className="self-start mt-10 px-4 py-2 rounded border-2 border-white text-white hover:bg-white hover:text-black transition disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled={isLoading}
+        aria-label="Send message"
       >
-        Send
+        {isLoading ? "Sending..." : "Send"}
       </button>
+
       {emailSent && (
-        <div className="sent-alert">
+        <div className="sent-alert" role="alert" aria-live="polite">
           Thanks, your email has been sent! I will get back to you when
           available!
         </div>
