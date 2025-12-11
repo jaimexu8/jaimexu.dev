@@ -481,8 +481,6 @@ body {
 .navbar a:hover,
 .navbar a:focus {
   color: var(--text-primary);
-  outline: 2px solid var(--primary);
-  outline-offset: 4px;
 }
 
 .navbar a::after {
@@ -621,6 +619,29 @@ section h1 {
   background-clip: text;
   margin-bottom: 1.5rem;
   line-height: 1.1;
+}
+
+.typing-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--text-primary);
+  animation: blink 1s infinite;
+  font-weight: 300;
+  -webkit-text-fill-color: var(--text-primary);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 section h2 {
@@ -785,7 +806,7 @@ section p {
 .experience-description {
   color: var(--text-secondary);
   line-height: 1.6;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
 }
 
 .experience-description ul {
@@ -797,6 +818,7 @@ section p {
 .experience-description li {
   margin-bottom: 0.5rem;
   color: var(--text-secondary);
+  font-size: 0.9rem;
 }
 
 /* CONTACT FORM */
