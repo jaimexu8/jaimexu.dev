@@ -4,7 +4,7 @@ import type { ExperienceItem, Project, BackgroundCircle } from "../types";
 
 export const MAX_MENU_WIDTH = 768;
 
-export const RESUME_PATH = "/jaime_xu_resume.pdf";
+export const RESUME_PATH = "/Jaime_Xu_Resume.pdf";
 
 export const NAVIGATION_LINKS = [
   { label: "Home", href: "#section1" },
@@ -17,7 +17,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
     title: "Bachelor of Science in Computer Science",
     company: "Purdue University",
-    date: "August 2022 - May 2026",
+    date: "Expected December 2026",
     location: "West Lafayette, IN",
   },
   {
@@ -26,7 +26,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     date: "May 2025 - August 2025",
     location: "Indianapolis, IN",
     description: [
-      "Architected a customizable form SDK using ServiceNow, implementing Role-Based Access Control (RBAC).",
+      "Architected a customizable form SDK integration in JavaScript, implementing role-based access control.",
       "Enhanced global accessibility across 90+ custom ServiceNow components by integrating multilingual support.",
       "Collaborated within an Agile/Scrum development environment, participating in daily stand-ups and code reviews.",
     ],
@@ -37,7 +37,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     date: "February 2024 - August 2024",
     location: "Philadelphia, PA",
     description: [
-      "Deployed 12+ client-facing REST APIs using TypeScript and PostgreSQL for event management software.",
+      "Deployed 12 client-facing REST APIs using TypeScript and PostgreSQL for event management software.",
       "Facilitated management of 40+ events and 700+ service hours by optimizing backend data aggregation.",
       "Increased event signup rates by 25% by implementing a user interest tracking feature with React and Redux.",
     ],
@@ -63,6 +63,7 @@ export const PROJECTS_DATA: Project[] = [
     image: shibaTypeImage,
     imageAlt: "Shiba Type Project",
     githubUrl: "https://github.com/jaimexu8/shibatype",
+    demoUrl: "https://shibatype.vercel.app/",
   },
   {
     title: "Homemade Helper",

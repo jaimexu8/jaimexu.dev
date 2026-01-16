@@ -38,11 +38,10 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             className="btn btn-primary"
             aria-label={`View ${project.title} live demo`}
           >
-            Live Demo
+            View Live
           </a>
         )}
       </div>
     </div>
   );
 };
-

@@ -1,5 +1,6 @@
 import { FC, FormEvent, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 
 interface SendEmailResponse {
   text: string;
@@ -16,7 +17,6 @@ export const ContactForm: FC = () => {
     message: "",
   });
 
-  const [emailSent, setEmailSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -72,7 +72,7 @@ export const ContactForm: FC = () => {
 
     try {
       await emailjs.sendForm(serviceId, templateId, e.currentTarget as HTMLFormElement, publicKey);
-      setEmailSent(true);
+      toast.success("Thanks, your email has been sent! I will get back to you when available!");
       setFormData({
         user_name: "",
         user_email: "",
@@ -81,22 +81,13 @@ export const ContactForm: FC = () => {
     } catch (err) {
       const error = err as SendEmailError;
       console.error("EmailJS error:", error);
-      setError(
-        "Failed to send email. Please try again later or contact me directly at jaimexu8@gmail.com."
-      );
+      const errorMessage = "Failed to send email. Please try again later or contact me directly at jaimexu8@gmail.com.";
+      setError(errorMessage);
+      toast.error(errorMessage);
     } finally {
       setIsLoading(false);
     }
   };
-
-  useEffect(() => {
-    if (emailSent) {
-      const timer = setTimeout(() => {
-        setEmailSent(false);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [emailSent]);
 
   return (
     <form className="form-container" onSubmit={sendEmail} noValidate>
@@ -173,13 +164,6 @@ export const ContactForm: FC = () => {
       >
         {isLoading ? "Sending..." : "Send"}
       </button>
-
-      {emailSent && (
-        <div className="sent-alert" role="alert" aria-live="polite">
-          Thanks, your email has been sent! I will get back to you when
-          available!
-        </div>
-      )}
     </form>
   );
 };

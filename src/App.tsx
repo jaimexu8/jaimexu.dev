@@ -9,6 +9,7 @@ import { Footer } from "./components/Footer";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { MAX_MENU_WIDTH } from "./constants";
+import { Toaster } from "react-hot-toast";
 
 export default function App() {
   const section1Ref = useRef<HTMLElement>(null);
@@ -54,6 +55,37 @@ export default function App() {
 
   return (
     <ErrorBoundary>
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          className: "",
+          style: {
+            background: "rgba(255, 255, 255, 0.05)",
+            color: "#ffffff",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+            borderRadius: "0.5rem",
+            backdropFilter: "blur(10px)",
+            padding: "1rem 1.25rem",
+            fontSize: "1.1rem",
+            fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          },
+          success: {
+            icon: null,
+            style: {
+              background: "rgba(255, 255, 255, 0.1)",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+            },
+          },
+          error: {
+            icon: null,
+            style: {
+              background: "rgba(239, 68, 68, 0.1)",
+              border: "1px solid rgba(239, 68, 68, 0.3)",
+              color: "#fca5a5",
+            },
+          },
+        }}
+      />
       <div className="flex items-center justify-center">
         <div className="layout">
           <BackgroundCircles scrollY={scrollY} />
